@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "17fbfe1b-ee1b-4bbd-bd18-a4847c271771",
+		"name": "AceleraDev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get decripted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=c79258ecd2e64f3032404137d9a7237ed4958783",
+					"protocol": "https",
+					"host": [
+						"api",
+						"codenation",
+						"dev"
+					],
+					"path": [
+						"v1",
+						"challenge",
+						"dev-ps",
+						"generate-data"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c79258ecd2e64f3032404137d9a7237ed4958783"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "answer",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=c79258ecd2e64f3032404137d9a7237ed4958783",
+					"protocol": "https",
+					"host": [
+						"api",
+						"codenation",
+						"dev"
+					],
+					"path": [
+						"v1",
+						"challenge",
+						"dev-ps",
+						"submit-solution"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c79258ecd2e64f3032404137d9a7237ed4958783"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
