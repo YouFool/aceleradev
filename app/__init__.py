@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = "https://api.codenation.dev/v1/challenge/dev-ps/generate-data"
 
@@ -15,17 +16,23 @@ headers = {
 response = requests.request("GET", url, data=payload, headers=headers, params=querystring, verify=False)
 
 print(response)
-print(response.apparent_encoding)
-print(response.text)
+print('Response' + response.text)
+
+# Parse the response JSON as a Dictionary
+jsonResponse = json.loads(response.text)
+print(type(jsonResponse))
 
 decodedString = ""
+# Get the cypher in the JSON response
+#cypher = response.text.numero_casas 
 for letter in response.text:
     if letter.isalpha():
-        val = bytes(letter, 'utf-8')
-        print(type(val))
-        decodedString = str(val)
+        decodedLetter = chr(ord(letter) + cypher)
+        decodedString = decodedString.append(decodedLetter)
     else:
-        decodedString.__add__(letter)
-
+        decodedString = decodedString.append(letter)
 
 print(decodedString)
+
+with open('answer.json', 'w') as outfile:
+	json.dump(data, outfile)
